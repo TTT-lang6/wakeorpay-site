@@ -1,0 +1,326 @@
+ <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>WakeOrPay - Wake Up On Time or Face the Consequences</title>
+      <style>
+          * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+          }
+
+          body {
+              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+              background: #0f0f0f;
+              color: #ffffff;
+              line-height: 1.6;
+              overflow-x: hidden;
+          }
+
+          .container {
+              max-width: 1200px;
+              margin: 0 auto;
+              padding: 0 20px;
+          }
+
+          /* Header */
+          header {
+              padding: 2rem 0;
+              background: rgba(0, 0, 0, 0.5);
+              backdrop-filter: blur(10px);
+              position: fixed;
+              width: 100%;
+              top: 0;
+              z-index: 1000;
+          }
+
+          nav {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+          }
+
+          .logo {
+              font-size: 1.8rem;
+              font-weight: bold;
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+          }
+
+          .coming-soon {
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              padding: 0.5rem 1.5rem;
+              border-radius: 25px;
+              font-size: 0.9rem;
+              font-weight: 600;
+          }
+
+          /* Hero Section */
+          .hero {
+              margin-top: 100px;
+              padding: 5rem 0;
+              text-align: center;
+              background: radial-gradient(ellipse at center, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+          }
+
+          .hero h1 {
+              font-size: 3.5rem;
+              margin-bottom: 1.5rem;
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+          }
+
+          .hero p {
+              font-size: 1.3rem;
+              color: #b0b0b0;
+              max-width: 600px;
+              margin: 0 auto 2rem;
+          }
+
+          /* How It Works */
+          .how-it-works {
+              padding: 5rem 0;
+              background: rgba(255, 255, 255, 0.02);
+          }
+
+          .section-title {
+              text-align: center;
+              font-size: 2.5rem;
+              margin-bottom: 3rem;
+          }
+
+          .steps {
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+              gap: 2rem;
+              margin-top: 3rem;
+          }
+
+          .step {
+              background: rgba(255, 255, 255, 0.05);
+              padding: 2rem;
+              border-radius: 15px;
+              text-align: center;
+              border: 1px solid rgba(255, 255, 255, 0.1);
+              transition: transform 0.3s ease;
+          }
+
+          .step:hover {
+              transform: translateY(-5px);
+              background: rgba(255, 255, 255, 0.08);
+          }
+
+          .step-number {
+              width: 50px;
+              height: 50px;
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 1.5rem;
+              font-weight: bold;
+              margin: 0 auto 1rem;
+          }
+
+          /* Features */
+          .features {
+              padding: 5rem 0;
+          }
+
+          .features-grid {
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+              gap: 2rem;
+              margin-top: 3rem;
+          }
+
+          .feature {
+              background: rgba(255, 255, 255, 0.05);
+              padding: 2rem;
+              border-radius: 15px;
+              border: 1px solid rgba(255, 255, 255, 0.1);
+          }
+
+          .feature h3 {
+              margin-bottom: 1rem;
+              color: #667eea;
+          }
+
+          /* Pricing */
+          .pricing {
+              padding: 5rem 0;
+              background: rgba(255, 255, 255, 0.02);
+              text-align: center;
+          }
+
+          .price-card {
+              background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+              border: 2px solid rgba(102, 126, 234, 0.3);
+              border-radius: 20px;
+              padding: 3rem;
+              max-width: 400px;
+              margin: 0 auto;
+          }
+
+          .price {
+              font-size: 3rem;
+              font-weight: bold;
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+          }
+
+          .price-period {
+              font-size: 1.2rem;
+              color: #b0b0b0;
+          }
+
+          /* Footer */
+          footer {
+              padding: 3rem 0;
+              background: #000;
+              text-align: center;
+          }
+
+          .social-links {
+              margin: 2rem 0;
+          }
+
+          .social-links a {
+              color: #ffffff;
+              text-decoration: none;
+              margin: 0 1rem;
+              font-size: 1.2rem;
+              transition: color 0.3s ease;
+          }
+
+          .social-links a:hover {
+              color: #667eea;
+          }
+
+          .powered-by {
+              margin-top: 2rem;
+              color: #b0b0b0;
+              font-size: 0.9rem;
+          }
+
+          .powered-by a {
+              color: #667eea;
+              text-decoration: none;
+          }
+
+          /* Responsive */
+          @media (max-width: 768px) {
+              .hero h1 {
+                  font-size: 2.5rem;
+              }
+
+              .hero p {
+                  font-size: 1.1rem;
+              }
+
+              .section-title {
+                  font-size: 2rem;
+              }
+
+              .steps {
+                  grid-template-columns: 1fr;
+              }
+
+              .price {
+                  font-size: 2.5rem;
+              }
+          }
+      </style>
+  </head>
+  <body>
+      <header>
+          <nav class="container">
+              <div class="logo">WakeOrPay</div>
+              <div class="coming-soon">Coming Soon - Q1 2024</div>
+          </nav>
+      </header>
+
+      <section class="hero">
+          <div class="container">
+              <h1>Wake Up On Time or Face the Consequences</h1>
+              <p>WakeOrPay is a mobile app that helps people wake up on time by recording a video that gets posted if they fail to wake up</p>
+          </div>
+      </section>
+
+      <section class="how-it-works">
+          <div class="container">
+              <h2 class="section-title">How It Works</h2>
+              <div class="steps">
+                  <div class="step">
+                      <div class="step-number">1</div>
+                      <h3>Set Your Alarm</h3>
+                      <p>Choose your wake-up time and set the stakes for oversleeping</p>
+                  </div>
+                  <div class="step">
+                      <div class="step-number">2</div>
+                      <h3>Record Your Video</h3>
+                      <p>Create a motivational or embarrassing video that you wouldn't want posted</p>
+                  </div>
+                  <div class="step">
+                      <div class="step-number">3</div>
+                      <h3>Wake Up On Time</h3>
+                      <p>Complete the wake-up challenge before the deadline to keep your video private</p>
+                  </div>
+                  <div class="step">
+                      <div class="step-number">4</div>
+                      <h3>Stay Accountable</h3>
+                      <p>Miss the deadline? Your video gets posted to keep you accountable</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section class="features">
+          <div class="container">
+              <h2 class="section-title">Features</h2>
+              <div class="features-grid">
+                  <div class="feature">
+                      <h3>Smart Wake-Up Challenges</h3>
+                      <p>Complete engaging challenges to prove you're truly awake - no more snoozing</p>
+                  </div>
+                  <div class="feature">
+                      <h3>Customizable Stakes</h3>
+                      <p>Choose where your video gets posted and who sees it if you oversleep</p>
+                  </div>
+                  <div class="feature">
+                      <h3>Progress Tracking</h3>
+                      <p>Monitor your wake-up streak and build better morning habits over time</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section class="pricing">
+          <div class="container">
+              <h2 class="section-title">Simple Pricing</h2>
+              <div class="price-card">
+                  <div class="price">$5.99</div>
+                  <div class="price-period">per month</div>
+                  <p style="margin-top: 1rem; color: #b0b0b0;">Unlimited alarms, video storage, and wake-up challenges</p>
+              </div>
+          </div>
+      </section>
+
+      <footer>
+          <div class="container">
+              <div class="social-links">
+                  <a href="https://twitter.com/wakeorpay" target="_blank">Twitter</a>
+              </div>
+              <div class="powered-by">
+                  Powered by <a href="https://stripe.com" target="_blank">Stripe</a>
+              </div>
+          </div>
+      </footer>
+  </body>
+  </html>
